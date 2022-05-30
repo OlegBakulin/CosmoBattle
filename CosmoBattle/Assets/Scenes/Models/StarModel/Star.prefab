@@ -114,11 +114,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 9032644263953545578}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c1db2af3a725a249a38e3a89bf3a3ce, type: 3}
+  m_Script: {fileID: 11500000, guid: 565a4f1194ba42a44a0d2d9b14a8f0dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   VariantPlanets:
-  - {fileID: 1901945646853340068, guid: d1e86eb116347384b9c06bccd35f6e4f, type: 3}
-  - {fileID: 6896274951932585699, guid: 03155ccf485f20f45baa84713b85061d, type: 3}
-  - {fileID: 6325955955494451421, guid: f06bb868879e26949a16004a81430328, type: 3}
-  Chanse: 1e0000003200000014000000
+  - {fileID: 6325955955494451421, guid: add7ea12ff53ceb4183358f465516222, type: 3}
+  - {fileID: 6352899782402517488, guid: 6fba2a86a506e1d4fa5ab5e762866af6, type: 3}
+  - {fileID: 6896274951932585699, guid: cf66d7c499bc37e4b81ba580b03072db, type: 3}
+  Chanse: 140000001e00000032000000
+  minRadOrbPlan: 10
+  maxRadOrbPlan: 70
+  minDiaPlan: 3
+  maxDiaPlan: 5
+  maxKolPlanet: 4
