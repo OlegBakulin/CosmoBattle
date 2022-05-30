@@ -29,7 +29,7 @@ public class Planet
                 NowChancePlanet = NowChancePlanet + Chanse[i];
                 if (NowChancePlanet >= ChansePlanets)
                 {
-                    TypePlanet = GameObject.Instantiate(VariantPlanets[i]);
+                    listPlanets[kol] = GameObject.Instantiate(VariantPlanets[i]);
                     break;
                 }
             }
@@ -42,17 +42,16 @@ public class Planet
 
             float X = (random.Next(minRadOrbPlan * 100, ((int)radiysOrbit) * 100) / 100) * XplusORminus;
 
-            TypePlanet.transform.position = new Vector3(X, (float)Math.Sqrt((Convert.ToDouble((radiysOrbit * radiysOrbit) - (X * X)))) * YplusORminus, 0);
+            listPlanets[kol].transform.position = new Vector3(X, (float)Math.Sqrt((Convert.ToDouble((radiysOrbit * radiysOrbit) - (X * X)))) * YplusORminus, 0);
             #endregion
 
             #region Диаметр планеты
             radiysPlanet = (random.Next(minDiaPlan * 100, maxDiaPlan * 100)) / 100;
-            TypePlanet.transform.localScale = new Vector3(radiysPlanet, radiysPlanet, 0);
+            listPlanets[kol].transform.localScale = new Vector3(radiysPlanet, radiysPlanet, 0);
             #endregion
 
-            listPlanets[kol] = TypePlanet;
+            //listPlanets[kol] = TypePlanet;
         }
-        listPlanets = listPlanets;
         return listPlanets;
     }
 
