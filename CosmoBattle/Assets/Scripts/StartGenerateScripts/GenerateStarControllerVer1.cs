@@ -6,26 +6,17 @@ using Assets.Scripts.StartGenerateScripts.Enums;
 
 namespace Assets.Scripts.StartGenerateScripts
 {
-    public class StarNew
+    public class GenerateStarControllerVer1
     {
-        public string nameNowStar;
-        public Vector3 positionNowStar;
-        public int diametrNowStar;
-        public Color32 colorNowStar;
-    }
-
-    public class GenerateStarControllerVer1 : MonoBehaviour
-    {
-        public int minRadiys = 50;
-        public int maxRadiys = 100;
-        GameObject[] enemy;
-
-        public void GeneratStars(GameObject variantStar)
+        public GameObject[] GeneratStars(GameObject variantStar, uint kol = 100)
         {
-
+            int minRadiys = 50;
+            int maxRadiys = 100;
+        
             List<ChanseStar> listVariantStars = ChanseStar.AllChanseParamStars();
             System.Random random = new System.Random();
-            int kol = 100;
+            
+            GameObject[] enemy = new GameObject[kol];
             for (int s = 0; s < kol; s++)
             {
                 int ran = random.Next(100) - 1;
@@ -39,29 +30,33 @@ namespace Assets.Scripts.StartGenerateScripts
 
                         try
                         {
-                            enemy = GameObject.FindGameObjectsWithTag("Star");
+                            //enemy = GameObject.FindGameObjectsWithTag("Star");
                         }
                         catch (Exception)
                         {
                         }
 
-                        if (SearchFirstStar(starXYZ, ran))
+                        if (true)//SearchFirstStar(starXYZ, ran, enemy))
                         {
-                            GameObject gameObject = Instantiate(variantStar);
-
+                            GameObject gameObject = GameObject.Instantiate(variantStar);
                             gameObject.transform.localScale = new Vector3(ran, ran, ran);
                             gameObject.name = listVariantStars[i].nameStar;
                             gameObject.transform.position = starXYZ;
                             gameObject.GetComponent<SpriteRenderer>().color = new Color32(((byte)random.Next(10, 240)), ((byte)random.Next(10, 240)), ((byte)random.Next(10, 240)), ((byte)255));
+                            enemy[s] = gameObject;
                         }
                         break;
                     }
                 }
             }
+            return enemy;
         }
 
-        bool SearchFirstStar(Vector3 starXYZ, int diametrs)
+        bool SearchFirstStar(Vector3 starXYZ, int diametrs, GameObject[] enemy)
         {
+            int minRadiys = 50;
+            int maxRadiys = 100;
+
             if (enemy == null)
             {
                 return true;

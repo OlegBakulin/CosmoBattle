@@ -53,10 +53,16 @@
     <UnityVersion>2020.3.26f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\StartGenerateScripts\Enums\StarsEnums.cs" />
     <Compile Include="Assets\Scripts\StartGenerateScripts\GenerateSpaceController.cs" />
-    <Compile Include="Assets\Scripts\StartGenerateScripts\GenerateStarControllerVer1.cs" />
+    <Compile Include="Assets\Scenes\Models\PlayerNPC\Characteristic.cs" />
     <Compile Include="Assets\Scripts\StartGenerateScripts\GenerateStarControllerVer2.cs" />
+    <Compile Include="Assets\Scripts\Cosmo\CreatePlayerController.cs" />
+    <Compile Include="Assets\Scripts\StartGenerateScripts\GeneratePlanetController.cs" />
+    <Compile Include="Assets\Scripts\Cosmo\PlanetMoveController.cs" />
+    <Compile Include="Assets\Scripts\StartGenerateScripts\GenerateStarControllerVer1.cs" />
+    <Compile Include="Assets\CharCharacter.cs" />
+    <Compile Include="Assets\Scripts\StartGenerateScripts\Enums\PlanetsEnum.cs" />
+    <Compile Include="Assets\Scripts\StartGenerateScripts\Enums\StarsEnums.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
