@@ -10,12 +10,12 @@ public class Planet
     public float radiysPlanet;
 
 
-    public GameObject[] RemovePlanet(List<GameObject> VariantPlanets, List<int> Chanse,
+    public List<GameObject> RemovePlanet(List<GameObject> VariantPlanets, List<int> Chanse,
                                             int minRadOrbPlan, int maxRadOrbPlan,
                                             int minDiaPlan, int maxDiaPlan, int kolPlanets)
     {
         System.Random random = new System.Random();
-        GameObject[] listPlanets = new GameObject[kolPlanets];
+        List<GameObject> listPlanets = new List<GameObject>();
 
         for (int kol = 0; kol < kolPlanets; kol++)
         {
@@ -24,12 +24,13 @@ public class Planet
             #region Вид
             GameObject TypePlanet = VariantPlanets[VariantPlanets.Count - 1];
             float NowChancePlanet = 0;
+
             for (int i = 0; i < VariantPlanets.Count; i++)
             {
                 NowChancePlanet = NowChancePlanet + Chanse[i];
                 if (NowChancePlanet >= ChansePlanets)
                 {
-                    listPlanets[kol] = GameObject.Instantiate(VariantPlanets[i]);
+                    TypePlanet = GameObject.Instantiate(VariantPlanets[i]);
                     break;
                 }
             }
@@ -42,15 +43,15 @@ public class Planet
 
             float X = (random.Next(minRadOrbPlan * 100, ((int)radiysOrbit) * 100) / 100) * XplusORminus;
 
-            listPlanets[kol].transform.position = new Vector3(X, (float)Math.Sqrt((Convert.ToDouble((radiysOrbit * radiysOrbit) - (X * X)))) * YplusORminus, 0);
+            TypePlanet.transform.position = new Vector3(X, (float)Math.Sqrt((Convert.ToDouble((radiysOrbit * radiysOrbit) - (X * X)))) * YplusORminus, 0);
             #endregion
 
             #region Диаметр планеты
             radiysPlanet = (random.Next(minDiaPlan * 100, maxDiaPlan * 100)) / 100;
-            listPlanets[kol].transform.localScale = new Vector3(radiysPlanet, radiysPlanet, 0);
+            TypePlanet.transform.localScale = new Vector3(radiysPlanet, radiysPlanet, 0);
             #endregion
 
-            //listPlanets[kol] = TypePlanet;
+            listPlanets.Add(TypePlanet);
         }
         return listPlanets;
     }

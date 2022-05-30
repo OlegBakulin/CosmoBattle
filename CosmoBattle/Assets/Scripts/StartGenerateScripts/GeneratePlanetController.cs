@@ -10,6 +10,7 @@ public class GeneratePlanetController : MonoBehaviour
     public int maxRadOrbPlan = 70;
     public int minDiaPlan = 3;
     public int maxDiaPlan = 5;
+    public int maxKolPlan = 4;
 
     class SortPlanet
     {
@@ -44,9 +45,9 @@ void Start()
         
         System.Random random = new System.Random();
 
-        int kolPlanets = random.Next(100, 400) / 100;
+        int kolPlanets = random.Next(100, maxKolPlan * 100) / 100;
         Planet planets = new Planet();
-        GameObject[] listPlanets = planets.RemovePlanet(VariantPlanets, Chanse, minRadOrbPlan, maxRadOrbPlan, minDiaPlan, maxDiaPlan, kolPlanets);
+        List<GameObject> listPlanets = planets.RemovePlanet(VariantPlanets, Chanse, minRadOrbPlan, maxRadOrbPlan, minDiaPlan, maxDiaPlan, kolPlanets);
 
         for (int i = 0; i < kolPlanets; i++)
         {
